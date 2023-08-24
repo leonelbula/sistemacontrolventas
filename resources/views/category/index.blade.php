@@ -1,11 +1,21 @@
-<h1>Categorias</h1>
-<a href="{{route('categoria.crear')}}">Nueva categoria</a>
+@extends('layouts.app')
+@section('title'){{ $title }} @endsection
+@section('content')
+<a href="{{route('home')}}">
+    <button type="button" class="btn btn-primary">Volver</button>
+</a>
+<a href="{{route('categoria.crear')}}">
+    <button type="button" class="btn btn-primary">Nueva categoria</button>
+</a>
 
-<table>
+<table id="categoryTable" class="table table-bordered table-striped">
     <thead>
-        <th>Id</th>
-        <th>Nombre</th>
-        <th>Estado</th>
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Estado</th>
+      <th>Opciones</th>
+    </tr>
     </thead>
     <tbody>
         @foreach($categories as $category)
@@ -18,16 +28,34 @@
             <td>Desactivada</td>
             @endif
             <td>
-                <a href="{{ route('categoria.edit', $category) }}">Editar</a>
+                <a href="{{ route('categoria.edit', $category) }}">
+                    <button type="button" class="btn btn-warning">Editar</button>
+                </a>
                 <form action="{{route('categoria.destroy', $category)}}" method="post">
                     @method('delete')
                     @csrf
-                    <input type="submit" value="Eliminar">
+                    <input type="submit"  class="btn btn-danger" value="Eliminar">
                 </form>
-               
+
             </td>
         </tr>
         @endforeach
 
     </tbody>
-</table>
+  </table>
+@endsection
+
+@section('scriptTable')
+<script>
+    $(function () {
+      $('#categoryTable').DataTable({
+        'paging'      : true,
+        'lengthChange': false,
+        'searching'   : false,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false
+      })
+    })
+  </script>
+@endsection

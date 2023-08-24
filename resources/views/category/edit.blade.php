@@ -1,15 +1,35 @@
-<h2>Editar</h2>
-<form action="{{route('categoria.update', $category )}}" method="post">
+@extends('layouts.app')
+@section('title'){{ $title }} @endsection
+@section('content')
+
+<div class="col-md-6">
+    <a href="{{route('categoria.index')}}">
+        <button type="button" class="btn btn-primary">Volver</button>
+    </a>
+    <br>
+<form role="form" action="{{route('categoria.update', $category )}}" method="post">
     @method('put')
     @csrf
-    <input type="hidden" name="id" value="{{$category->id}}">
-    <label for="">Nombre de la categoria
-        <input type="text" name="name" id="name" value="{{ $category->name}}">
-    </label>
-    @error('name')
+    <div class="box-body">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Nombre Categoria</label>
+        <input type="text" class="form-control" name="name" id="nameCategory" value="{{ $category->name}}" placeholder="Nombre">
+      </div>
+      @error('name')
     <small>El campo nombre no puede estar vacio</small>
     @enderror
-    <label for="state">Activar</label>
-    <input type="checkbox" name="state" id="state" @if($category->state) checked @endif>
-    <input type="submit" value="crear">
-</form>
+            
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="state" id="state"  @if($category->state) checked @endif> Activar
+        </label>
+      </div>
+    </div>
+    <!-- /.box-body -->
+
+    <div class="box-footer">
+      <button type="submit" class="btn btn-primary">Editar</button>
+    </div>
+  </form>
+</div>
+@endsection

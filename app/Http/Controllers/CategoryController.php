@@ -10,17 +10,19 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('category.index', compact('categories'));
+        $title = 'Categorias';
+        return view('category.index', compact('categories', 'title'));
     }
     public function create()
     {
-        return view('category.create');
+        $title = 'Nueva Categoria';
+        return view('category.create', compact('title'));
     }
     public function store(Request $request)
     {
 
         $request->validate([
-            'name'=>'required'
+            'name' => 'required'
         ]);
 
         $name = $request->input('name');
@@ -40,7 +42,7 @@ class CategoryController extends Controller
 
         return redirect()->route('categoria.index');
     }
-    
+
     public function show(Category $category)
     {
         return view('category.edit', compact('category'));
@@ -48,13 +50,14 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
-        return view('category.edit', compact('category'));
+        $title = 'Editar Categorias';
+        return view('category.edit', compact('category', 'title'));
     }
 
     public function update(Request $request, Category $category)
     {
         $request->validate([
-            'name'=>'required'
+            'name' => 'required'
         ]);
 
         $category->name = $request->name;
@@ -70,12 +73,13 @@ class CategoryController extends Controller
         $category->state = $state;
         //$categoru->update($request->all())
         $category->save();
-    
+
 
         return redirect()->route('categoria.index');
     }
 
-    public function destroy(Category $category){
+    public function destroy(Category $category)
+    {
         $category->delete();
         return redirect()->route('categoria.index');
     }
