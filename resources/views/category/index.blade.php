@@ -45,7 +45,7 @@
   </table>
 @endsection
 
-@section('scriptTable')
+@section('script')
 <script>
     $(function () {
       $('#categoryTable').DataTable({
