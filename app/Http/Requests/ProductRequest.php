@@ -22,18 +22,14 @@ class ProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'codigo'=>'required|max:150',
-            'name'=>'required|max:150',
-            'cost'=>'required',
-            'price'=>'required',
-            'price_two'=>'required',
-            'price_three'=>'required',
-            'utility'=>'required',
-            'utility_two'=>'required',
-            'utility_three'=>'required',
-            'minimum_amount'=>'required',
-            'amount'=>'required',
-
+            'code' => 'required|max:150',
+            'name' => 'required|max:150',
+            'cost' => 'required',
+            'price' => 'required',
+            'utility' => 'required',
+            'minimum_amount' => 'required',
+            'amount' => 'required',
+            'category_id' => 'required',
         ];
     }
 }

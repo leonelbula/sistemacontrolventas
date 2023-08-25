@@ -10,29 +10,44 @@
 </a>
 
 <table id="productTable" class="table table-bordered table-striped">
-    <th>id</th>
+    <th>Codigo</th>
     <th>nombre</th>
     <th>categoria</th>
     <th>costo</th>
     <th>precio</th>
-    <th>precio Uno</th>
-    <th>precio Dos</th>
-    <th>precio Tres</th>
     <th>Cantidad</th>
     <th>Stock minimo</th>
+    <th>Estado</th>
     <th>Aciones</th>
     <tbody>
         @foreach($products as $product)
-            <td>{{ $product->codigo }}</td>
+        <tr>
+            <td>{{ $product->code }}</td>
             <td>{{ $product->name }}</td>
-            <td>{{ $product->id }}</td>
+            <td>{{ $product->category_id }}</td>
             <td>{{ $product->cost }}</td>
             <td>{{ $product->price }}</td>
-            <td>{{ $product->price_two }}</td>
-            <td>{{ $product->price_three }}</td>
             <td>{{ $product->amount }}</td>
             <td>{{ $product->minimum_amount }}</td>
-            <a href="">Editar</a>
+            <td>
+              @if($product->state)
+                <button class="btn btn-info btn-xs">
+                  Activo
+                </button>
+                @else
+                  <button class="btn btn-primary btn-xs">Desactivado</button>
+               @endif
+              </td>
+            <td>
+              <div class="btn-group">
+              <a href="{{ route('producto.edit', $product) }}" class="btn btn-warning" ><i class="fa fa-pencil"></i></a>
+              <form action="{{route('producto.destroy', $product)}}" method="post">
+                @method('delete')
+                @csrf
+                <button type="submit" class="btn btn-danger" ><i class="fa fa-times"></i></button>
+            </form>
+              </div>
+            </td>
             </tr>
             @endforeach
     </tbody>

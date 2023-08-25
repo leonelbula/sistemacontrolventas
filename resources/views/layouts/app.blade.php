@@ -209,7 +209,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{asset('plugins/js/demo.js')}}"></script>
     <!-- page script -->
-     @yield('scriptTable')
+     @yield('script')
 </body>
 
 </html>
