@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('address', 50);
             $table->string('city', 50);
             $table->string('department', 50);
-            $table->integer('price');
             $table->float('credit_amount');
             $table->timestamps();
         });

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -23,7 +24,14 @@ Route::get('/producto/crear', [ProductController::class, 'create'])->name('produ
 Route::post('/producto', [ProductController::class, 'store'])->name('producto.store');
 Route::get('/producto/{product}/ver', [ProductController::class, 'show'])->name('producto.show');
 Route::get('/producto/{product}/edit', [ProductController::class, 'edit'])->name('producto.edit');
-Route::put('/producto/{product}',[ProductController::class, 'update'])->name('producto.update');
-Route::delete('/producto/{product}',[ProductController::class, 'destroy'])->name('producto.destroy');
+Route::put('/producto/{product}', [ProductController::class, 'update'])->name('producto.update');
+Route::delete('/producto/{product}', [ProductController::class, 'destroy'])->name('producto.destroy');
 
-
+//clientes
+Route::get('/cliente', [CustomerController::class, 'index'])->name('cliente.index');
+Route::get('/cliente/crear', [CustomerController::class, 'create'])->name('cliente.create');
+Route::post('/cliente', [CustomerController::class, 'store'])->name('cliente.store');
+Route::get('/cliente/{customer}/ver', [CustomerController::class, 'show'])->name('cliente.show');
+Route::get('/cliente/{customer}/edit', [CustomerController::class, 'edit'])->name('cliente.edit');
+Route::put('/cliente/{customer}', [CustomerController::class, 'update'])->name('cliente.update');
+Route::delete('/cliente/{customer}', [CustomerController::class, 'destroy'])->name('cliente.destroy');

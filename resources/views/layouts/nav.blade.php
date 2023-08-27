@@ -17,13 +17,18 @@
                     <li><a href="{{ route('producto.index') }}"><i class="fa fa-circle-o"></i>Productos</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="../widgets.html">
-                    <i class="fa fa-th"></i> <span>Widgets</span>
+            <li class="treeview">
+                <a href="">
+                    <i class="fa fa-th"></i> 
+                    <span>Clientes</span>
                     <span class="pull-right-container">
-                        <small class="label pull-right bg-green">Hot</small>
+                        <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('cliente.index') }}"><i class="fa fa-circle-o"></i>Lista Cliente</a></li>
+                    <li><a href="{{ route('cliente.index') }}"><i class="fa fa-circle-o"></i>Estado de cuenta</a></li>
+                </ul>
             </li>
             <li class="treeview">
                 <a href="#">
