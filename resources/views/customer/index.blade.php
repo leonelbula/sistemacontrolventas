@@ -49,7 +49,7 @@
 @endsection
 
 
-@section('scriptTable')
+@section('script')
 <script>
     $(function () {
       $('#customerTable').DataTable({
