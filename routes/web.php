@@ -4,13 +4,22 @@ use App\Http\Controllers\AjaxProduct;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ParameterController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SaleController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [HomeController::class, 'login']);
+Route::get('/', function () {
+    return view('auth.login');
+});
+
 Route::get('/home', [HomeController::class, 'home'])->name('home');
+
+//parametros
+Route::get('/parametros', [ParameterController::class, 'index'])->name('parametros.index');
+Route::post('/paramtros', [ParameterController::class, 'store'])->name('parametros.store');
+
 //categorias 
 Route::get('/categorias', [CategoryController::class, 'index'])->name('categoria.index');
 Route::get('/categoria/crear', [CategoryController::class, 'create'])->name('categoria.crear');
@@ -31,7 +40,7 @@ Route::delete('/producto/{product}', [ProductController::class, 'destroy'])->nam
 
 //producto Ajax
 Route::get('/allproduct', [AjaxProduct::class, 'productAll'])->name('ajaxproducto.all');
-Route::post('/producto', [AjaxProduct::class, 'productGet'])->name('ajaxproducto.get');
+Route::post('/productoid', [AjaxProduct::class, 'productGet'])->name('ajaxproducto.get');
 
 
 

@@ -23,6 +23,22 @@
         </tr>
     </thead>
     <tbody>
+      @php
+          $i = 1;
+      @endphp
+      @foreach ($sales as $sale)
+          <tr>
+            <td>{{ $i++}}</td>
+            <td>{{ $sale->sale_number }}</td>
+            <td>{{ $sale->customer_id }}</td>
+            <td>{{ $sale->created_at }}</td>
+            <td>{{ $sale->expiration_date }}</td>
+            <td>{{ $sale->total }}</td>
+            <td>
+            
+            </td>
+          </tr>
+      @endforeach
     </tbody>
 </table>
 @endsection

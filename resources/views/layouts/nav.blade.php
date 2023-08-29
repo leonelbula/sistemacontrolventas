@@ -122,13 +122,13 @@
 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-share"></i> <span>Multilevel</span>
+                    <i class="fa fa-share"></i> <span>Configuracion</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+                    <li><a href="{{ route('parametros.index') }}"><i class="fa fa-circle-o"></i> Parametros</a></li>
                     <li class="treeview">
                         <a href="#"><i class="fa fa-circle-o"></i> Level One
                             <span class="pull-right-container">

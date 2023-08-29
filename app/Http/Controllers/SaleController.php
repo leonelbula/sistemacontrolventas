@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class SaleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $title = "Lista de ventas";
@@ -35,7 +40,7 @@ class SaleController extends Controller
             $newAmount = $amount - $product['cantidad'];
 
             $productDetalle['amount'] = $newAmount;
-            //$productDetalle->save();
+            $productDetalle->save();
             $cost += $product['costo'];
         }
         $utility = $request->totalVenta - $cost;
@@ -59,6 +64,7 @@ class SaleController extends Controller
             $balance = 0;
             $expiration_date = $request->fecha;
         }
+
         $sale->sale_number = $code_save;
         $sale->content = $request->listaProductos;
         $sale->cost = $cost;
@@ -66,17 +72,23 @@ class SaleController extends Controller
         $sale->total = $request->totalVenta;
         $sale->balance = $balance;
         $sale->hour = date('h:i:s');
+        $sale->date_sale = $request->fecha;
         $sale->expiration_date = $expiration_date;
-        //$sale->customer_id = $request->IdCliente;
-        $sale->customer_id = 1;
+        $sale->customer_id = $request->IdCliente;
         $sale->user_id = 1;
         $sale->save();
         $sale_id = $sale->id;
-        
-        foreach($listProduct as $product){
-            SaleProduct::created(
-                ''
-            );
+
+        $saleProducto = new SaleProduct();
+
+        foreach ($listProduct as $product) {
+
+            $saleProducto->amount = $product['cantidad'];
+            $saleProducto->fecha = $request->fecha;
+            $saleProducto->product_id = $product['id'];
+            $saleProducto->sale_id = $sale_id;
+            $saleProducto->save();
         }
+        return redirect()->route('venta.index');
     }
 }
