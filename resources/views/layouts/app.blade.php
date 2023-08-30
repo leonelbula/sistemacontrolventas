@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <script src="{{asset('plugins/sweetalert2/sweetalert2.all.js') }}"></script>
     </head>
-
+    <?php  date_default_timezone_set('America/Bogota'); ?>
 <body class="hold-transition skin-blue sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
@@ -161,7 +161,11 @@
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Salir</a>
+                                        <form action="{{ route('logout') }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-default btn-flat">Salir</button>
+                                        </form>
+                            
                                     </div>
                                 </li>
                             </ul>

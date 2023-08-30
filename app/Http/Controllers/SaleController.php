@@ -14,11 +14,11 @@ class SaleController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
         $title = "Lista de ventas";
-        $sales = Sale::all();
+        $sales = Sale::orderBy('id', 'DESC')->get();
         return view('sale.index', compact('title', 'sales'));
     }
     public function create()

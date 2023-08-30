@@ -39,53 +39,44 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{route('venta.index')}}"><i class="fa fa-circle-o"></i> Lista Ventas</a></li>
-                    <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i> Nueva Devolucion</a></li>
-                    <li><a href="../forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+                    <li><a href=""><i class="fa fa-circle-o"></i> Nueva Devolucion</a></li>
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#">
+                <a href="">
                     <i class="fa fa-pie-chart"></i>
-                    <span>Charts</span>
+                    <span>Gastos</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-                    <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-                    <li><a href="../charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-                    <li><a href="../charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+                    <li><a href="{{ route('gasto.index') }}"><i class="fa fa-circle-o"></i> Lista Gastos</a></li>
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#">
+                <a href="">
                     <i class="fa fa-laptop"></i>
-                    <span>UI Elements</span>
+                    <span>Compras</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-                    <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-                    <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-                    <li><a href="../UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-                    <li><a href="../UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-                    <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+                    <li><a href=""><i class="fa fa-circle-o"></i> Lista compras</a></li>
+                    <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> Devolucion compras</a></li>
                 </ul>
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-edit"></i> <span>Forms</span>
+                    <i class="fa fa fa-folder"></i> <span>Proveedores</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-                    <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-                    <li><a href="../forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+                    <li><a href=""><i class="fa fa-circle-o"></i> Lista Proveedores</a></li>
+                    <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i> Estado de cuenta</a></li>
                 </ul>
             </li>
             <li class="treeview">

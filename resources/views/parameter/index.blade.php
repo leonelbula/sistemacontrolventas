@@ -40,15 +40,22 @@
 
           <div class="panel panel-default">
              <div class="panel-heading">Informacion del Configuracion</div>
-             <ul class="list-group">	
-             
-             
-
-                   <li class="list-group-item"><b>Numero de Inicio Facturacion:</b><h4> </h4></li>
+             <ul class="list-group">	           
+                  <li class="list-group-item"><b>Numero de Inicio Facturacion:</b><h4> {{ $parameters->sale_code }}</h4></li>
+                   <li class="list-group-item"><b>Numero de Inicio Facturacion:</b><h4>{{ $parameters->prefix_sale }} </h4></li>
                                                                     
-                   <li class="list-group-item"><b>General Codigo Producto Automatico:</b><h4> 
-                       </h4></li>
-                   <li class="list-group-item"><b>Codigo Producto:</b><h4> </h4></li>
+                   <li class="list-group-item">
+                     <b>General Codigo Producto Automatico:</b>
+                     <h4> 
+                        @if ($parameters->automatic_product == 1)
+                       {{ 'Generar Automaticamente' }}
+                        @else
+                           {{ 'No generar'}}
+                        @endif  
+                     </h4>
+                     </li>
+                  </li>
+                   <li class="list-group-item"><b>Codigo Producto:</b><h4> {{ $parameters->product_code }}</h4></li>
 
          
              </ul>

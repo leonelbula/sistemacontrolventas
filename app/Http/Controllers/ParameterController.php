@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Parameter;
 use App\Models\Sale;
 use Illuminate\Http\Request;
+use PHPUnit\Framework\MockObject\Rule\Parameters;
 
 class ParameterController extends Controller
 {
@@ -12,11 +13,12 @@ class ParameterController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
+        $parameters = Parameter::find(1);
         $title = 'Paramentros';
-        return view('parameter.index', compact('title'));
+        return view('parameter.index', compact('title', 'parameters'));
     }
     public function store(Request $request)
     {

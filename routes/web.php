@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ParameterController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\SpentController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -61,3 +62,11 @@ Route::get('/venta/{sale}/ver', [SaleController::class, 'show'])->name('venta.sh
 Route::get('/venta/{sale}/edit', [SaleController::class, 'edit'])->name('venta.edit');
 Route::put('/venta/{sale}', [SaleController::class, 'update'])->name('venta.update');
 Route::delete('/venta/{sale}', [SaleController::class, 'destroy'])->name('venta.destroy');
+
+//gastos
+Route::get('/gastos', [SpentController::class, 'index'])->name('gasto.index');
+Route::get('/gastos/create', [SpentController::class, 'create'])->name('gasto.create');
+Route::post('/gasto', [SpentController::class, 'store'])->name('gasto.store');
+Route::get('/gastos/{spent}/edit', [SpentController::class, 'edit'])->name('gasto.edit');
+Route::put('/gastos/{spent}', [SpentController::class, 'update'])->name('gasto.update');
+Route::delete('/gastos/{spent}', [SpentController::class, 'destroy'])->name('gasto.destroy');
