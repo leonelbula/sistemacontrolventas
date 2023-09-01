@@ -24,7 +24,7 @@
         <tr>
             <td>{{ $product->code }}</td>
             <td>{{ $product->name }}</td>
-            <td>{{ $product->category_id }}</td>
+            <td>{{ $product->category->name }}</td>
             <td>{{ $product->cost }}</td>
             <td>{{ $product->price }}</td>
             <td>{{ $product->amount }}</td>

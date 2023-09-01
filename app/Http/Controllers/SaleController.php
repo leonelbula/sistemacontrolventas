@@ -6,6 +6,7 @@ use App\Models\Parameter;
 use App\Models\Product;
 use App\Models\Sale;
 use App\Models\SaleProduct;
+use App\Models\Term;
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -24,7 +25,8 @@ class SaleController extends Controller
     public function create()
     {
         $title = 'Nueva venta';
-        return view('sale.create', compact('title'));
+        $terms = Term::all();
+        return view('sale.create', compact('title', 'terms'));
     }
 
     public function store(Request $request)
@@ -58,8 +60,12 @@ class SaleController extends Controller
             $code_save++;
         }
         if ($request->tipoventa == 1) {
+
+            $dias = $request->plazos;
+            $fecha = $request->fecha;
+            $fechaActual = strtotime('+' . $dias . ' day', strtotime($fecha));
+            $expiration_date = date('Y-m-d', $fechaActual);
             $balance = $request->totalVenta;
-            $expiration_date = $request->fecha;
         } else {
             $balance = 0;
             $expiration_date = $request->fecha;
@@ -74,8 +80,10 @@ class SaleController extends Controller
         $sale->hour = date('h:i:s');
         $sale->date_sale = $request->fecha;
         $sale->expiration_date = $expiration_date;
-        $sale->customer_id = $request->IdCliente;
-        $sale->user_id = 1;
+        $sale->customer_id = $request->idcliente;
+        $sale->user_id = auth()->user()->id;
+        $sale->type_sale = $request->tipoventa;
+
         $sale->save();
         $sale_id = $sale->id;
 

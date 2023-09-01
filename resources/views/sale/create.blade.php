@@ -40,8 +40,8 @@
       
           <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-12">
              <label>Cliente(*):</label>
-             <input type="hidden" class="IdCliente" name="idcliente" id="IdCliente" value="1">
-             <input type="text" class="form-control" name="nombre" id="nombre" value="VENTAS PORMOSTRADOR"  disabled>
+             <input type="hidden" class="IdCliente" name="idcliente" id="IdCliente" value="">
+             <input type="text" class="form-control" name="nombre" id="nombre" value=""  disabled>
           </div>
           <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
              <label>Fecha(*):</label>
@@ -49,19 +49,19 @@
           </div>
           <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
              <label>C.C.:</label>
-             <input type="text" class="form-control" name="nit" id="nit" value="999999999"  disabled>
+             <input type="text" class="form-control" name="nit" id="nit" value=""  disabled>
           </div>
           <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
              <label>Direccion:</label>
-             <input type="text" class="form-control"  id="direccion" value="DIR" disabled>
+             <input type="text" class="form-control"  id="direccion" value="" disabled>
           </div>
           <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
              <label>Ciudad:</label>
-             <input type="text" class="form-control" id="ciudad" value="SAHAGUN" disabled>
+             <input type="text" class="form-control" id="ciudad" value="" disabled>
           </div>
           <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
              <label>Telefono:</label>
-             <input type="text" class="form-control" id="telefono" value="3000000000" disabled>
+             <input type="text" class="form-control" id="telefono" value="" disabled>
           </div>
        
  
@@ -152,10 +152,9 @@
                 <label for="estado">Plazo en Dias</label>					
                 <select class="chosen-select form-control plazoVenta" name="plazos" id="form-field-select-3">
                    <option value="">Seleciones el Tipo</option>
-                  
-                      <option value=""></option>
-                  
-
+                     @foreach ($terms as $term)
+                     <option value="{{$term->value}}">{{$term->description}}</option>
+                     @endforeach
                 </select>
              </div>
           </div>
@@ -250,12 +249,77 @@
  
  </div>
 
+
+ <div id="modalAgregarCliente" class="modal fade" role="dialog">
+
+   <div class="modal-dialog">
+
+      <div class="modal-content">
+
+         <form>           
+            <div class="modal-header" style="background:#3c8dbc; color:white">
+
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+               <h4 class="modal-title">Agregar cliente</h4>
+
+            </div>
+
+            <div class="modal-body">
+
+               <div class="box-body">
+
+                  <div class="form-group">
+
+                     <div class="col-xs-12 table-responsive">
+                        <table class="table table-bordered table-striped dt-responsive  tablaclienteventa">
+                           <thead>
+                              <tr>
+                                 <th>#</th>
+                                 <th>id</th>
+                                 <th>nombre</th>
+                                 <th>nit</th>
+                                 <th>accion</th>        
+
+                              </tr>
+                           </thead>            
+                        </table>
+                     </div>
+
+                  </div>       
+
+               </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+               <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+               <button type="submit" class="btn btn-primary"></button>
+
+            </div>
+
+         </form>
+
+
+      </div>
+
+   </div>
+
+</div>
+
  <input type="hidden" id="productall" value="{{ route('ajaxproducto.all') }}">
  <input type="hidden" id="productget" value="{{ route('ajaxproducto.get') }}">
+ <input type="hidden" id="customerall" value="{{ route('ajaxcustomer.all') }}">
+ <input type="hidden" id="customerget" value="{{ route('ajaxcustomer.get') }}">
+
+
  
 
 
 @endsection
 @section('script')
 <script src="{{ asset('js/newsale.js')}}"></script>
+<script src="{{ asset('js/customer.js')}}"></script>
 @endsection

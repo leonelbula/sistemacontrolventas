@@ -6,16 +6,15 @@
     <button type="button" class="btn btn-primary">Volver</button>
 </a>
 
-<form action="{{ route('cliente.store') }}" method="POST" >
+<form action="{{ route('proveedor.store') }}" method="POST" >
    @csrf
    <div class="col-md-6">
 
-         
          <div class="box-body">
 
 
             <div class="form-group">
-               <label>Nombre:</label>
+               <label>Nombre o Rason social:</label>
 
                <div class="input-group">
                   <div class="input-group-addon">
@@ -106,12 +105,23 @@
              </div>           
  
          </div>
+         <div class="form-group">
+            <label>Descripcion:</label>
+
+            <div class="input-group">
+               <div class="input-group-addon">
+                  <i class="fa fa-bookmark-o"></i>
+               </div>
+               <textarea class="form-control" rows="3" name="description" placeholder="Descripcion ..." required></textarea>
+            </div>
+            <!-- /.input group -->
+         </div>
          <button class="btn btn-primary" type="submit">
 
             Guardar 
 
          </button>
-
+      </div>
       <!-- /.box -->
 
 

@@ -27,7 +27,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('cliente.index') }}"><i class="fa fa-circle-o"></i>Lista Cliente</a></li>
-                    <li><a href="{{ route('cliente.index') }}"><i class="fa fa-circle-o"></i>Estado de cuenta</a></li>
+                    <li><a href="{{ route('estadocuentacliente.index') }}"><i class="fa fa-circle-o"></i>Estado de cuenta</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -40,6 +40,17 @@
                 <ul class="treeview-menu">
                     <li><a href="{{route('venta.index')}}"><i class="fa fa-circle-o"></i> Lista Ventas</a></li>
                     <li><a href=""><i class="fa fa-circle-o"></i> Nueva Devolucion</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="">
+                    <i class="fa fa-calendar"></i> <span>Plan separe</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('plansepare.index')}}"><i class="fa fa-circle-o"></i> Lista plan separe</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -75,7 +86,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href=""><i class="fa fa-circle-o"></i> Lista Proveedores</a></li>
+                    <li><a href="{{route('proveedor.index')}}"><i class="fa fa-circle-o"></i> Lista Proveedores</a></li>
                     <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i> Estado de cuenta</a></li>
                 </ul>
             </li>
@@ -90,66 +101,23 @@
                     <li><a href="../tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
                     <li><a href="../tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
                 </ul>
-            </li>
-            <li>
-                <a href="../calendar.html">
-                    <i class="fa fa-calendar"></i> <span>Calendar</span>
-                    <span class="pull-right-container">
-                        <small class="label pull-right bg-red">3</small>
-                        <small class="label pull-right bg-blue">17</small>
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="../mailbox/mailbox.html">
-                    <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                    <span class="pull-right-container">
-                        <small class="label pull-right bg-yellow">12</small>
-                        <small class="label pull-right bg-green">16</small>
-                        <small class="label pull-right bg-red">5</small>
-                    </span>
-                </a>
-            </li>
-
+            </li>               
+            <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Reportes</span></a></li>
+            <li class="header">Opciones</li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-share"></i> <span>Configuracion</span>
+                    <i class="fa fa-gears"></i> <span>Configuracion</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('parametros.index') }}"><i class="fa fa-circle-o"></i> Parametros</a></li>
-                    <li class="treeview">
-                        <a href="#"><i class="fa fa-circle-o"></i> Level One
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                            <li class="treeview">
-                                <a href="#"><i class="fa fa-circle-o"></i> Level Two
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+                    <li><a href=" {{ route('plazo.index') }} "><i class="fa fa-circle-o"></i> Plazos</a></li>
                 </ul>
             </li>
-            <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-            <li class="header">LABELS</li>
-            <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
-        </ul>
+            <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Usuarios</span></a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Perfil</span></a></li>
     </section>
     <!-- /.sidebar -->
 </aside>

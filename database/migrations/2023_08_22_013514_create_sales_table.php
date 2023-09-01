@@ -22,6 +22,7 @@ return new class extends Migration
             $table->time('hour', $precision = 0);
             $table->date('date_sale');
             $table->date('expiration_date');
+            $table->integer('type_sale');
             $table->foreignId('customer_id')->constrained('customers')->onUpdate('cascade')->onDelete('restrict');
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();
