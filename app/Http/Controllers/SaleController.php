@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\Parameter;
 use App\Models\Product;
 use App\Models\Sale;
@@ -98,5 +99,12 @@ class SaleController extends Controller
             $saleProducto->save();
         }
         return redirect()->route('venta.index');
+    }
+    public function edit(Sale $sale)
+    {
+        $title = "Editar Venta";
+        $customer = Customer::find($sale->customer_id);
+        $terms = Term::all();
+        return view('sale.edit', compact('customer', 'sale', 'terms', 'title'));
     }
 }
