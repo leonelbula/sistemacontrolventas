@@ -2,135 +2,77 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SacvAdmin | Ventas</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="{{asset('plugins/bootstrap/dist/css/bootstrap.min.css') }}">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{asset('plugins/font-awesome/css/font-awesome.min.css') }}">
-    
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="{{asset('plugins/Ionicons/css/ionicons.min.css') }}">
-    <link rel="stylesheet" href="{{asset('plugins/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{asset('plugins/css/AdminLTE.min.css') }}">
-    <link rel="stylesheet" href="{{asset('plugins/css/skins/_all-skins.min.css') }}">
-    <!-- Pace style -->
-    <link rel="stylesheet" href="{{asset('plugins/pace/pace.min.css') }}">
-    
-    <script src="{{asset('plugins/jquery/dist/jquery.min.js')}}"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="{{asset('plugins/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>@yield('title')</title>
 
-    <script src="{{asset('plugins/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('plugins/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-    <!-- PACE -->
-    <script src="{{asset('plugins/pace/pace.min.js')}}"></script>
-    <!-- SlimScroll -->
-    <script src="{{asset('plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
-    <!-- FastClick -->
-    <script src="{{asset('plugins/fastclick/lib/fastclick.js')}}"></script>
-    <!-- AdminLTE App -->
-    <script src="{{asset('plugins/js/adminlte.min.js')}}"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{asset('plugins/js/demo.js')}}"></script>
-    <script src="{{asset('plugins/jqueryNumber/jquerynumber.min.js') }}"></script>
-    <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    <script src="{{asset('plugins/sweetalert2/sweetalert2.all.js') }}"></script>
-    </head>
-    <?php  date_default_timezone_set('America/Bogota'); ?>
-<body class="hold-transition skin-blue sidebar-mini">
-    <!-- Site wrapper -->
-    <div class="wrapper">
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css') }} ">
 
-        <header class="main-header">
-            <!-- Logo -->
-            <a href="{{route('home')}}" class="logo">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>S</b>CV</span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Sistema</b>Ventas</span>
-            </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
+    <!-- CSS Libraries -->
 
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <span class="hidden-xs">Alexander Pierce</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <form action="{{ route('logout') }}" method="post">
-                                            @csrf
-                                            <button type="submit" class="btn btn-default btn-flat">Salir</button>
-                                        </form>
-                            
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
+    <!-- Start GA -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-        @include('layouts.nav')
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
 
-        <div class="content-wrapper">
+        gtag('config', 'UA-94034622-3');
+    </script>
+    <!-- /END GA -->
+</head>
 
-
-            <!-- Main content -->
-            <section class="content">
-
-                <!-- Default box -->
-                <div class="box">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">@yield('title')</h3>
+<body>
+    <div id="app">
+        <div class="main-wrapper main-wrapper-1">
+            <div class="navbar-bg"></div>
+            @include('layouts.nav')
+            @include('layouts.slider')
+            <!-- Main Content -->
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-header">
+                        <h1>Bienvenido {{ auth()->user()->name }}</h1>
                     </div>
-                    <div class="box-body">
+                    <div class="section-body">
                         @yield('content')
-
                     </div>
-
-                </div>
-                <!-- /.box -->
-
-            </section>
-            <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
-
-        <footer class="main-footer">
-            <div class="pull-right hidden-xs">
-                <b>Version</b> 1.0.0
+                </section>
             </div>
-            <strong>Copyright &copy; 2023 </strong>
-        </footer>
+            <footer class="main-footer">
+                <div class="footer-left">
+                    Copyright &copy; 2024 <div class="bullet"></div> Ing. Leonel Bula </div>
+                <div class="footer-right">
+                    version 1.0.0
+                </div>
+            </footer>
+        </div>
     </div>
-    <!-- ./wrapper -->
 
-    <!-- jQuery 3 -->
-   
-    <!-- page script -->
-     @yield('script')
+    <!-- General JS Scripts -->
+    <script src="{{ asset('assets/modules/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/popper.js') }}"></script>
+    <script src="{{ asset('assets/modules/tooltip.js') }}"></script>
+    <script src="{{ asset('assets/modules/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/js/stisla.js') }}"></script>
+
+    <!-- JS Libraies -->
+
+    <!-- Page Specific JS File -->
+
+    <!-- Template JS File -->
+    <script src="{{ asset('assets/js/scripts.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
 </body>
 
 </html>
