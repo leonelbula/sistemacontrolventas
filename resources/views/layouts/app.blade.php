@@ -40,10 +40,12 @@
             <div class="main-content">
                 <section class="section">
                     <div class="section-header">
-                        <h1>Bienvenido {{ auth()->user()->name }}</h1>
+                        <h1> @yield('subtitle')</h1>
                     </div>
                     <div class="section-body">
-                        @yield('content')
+                        <div class="card">
+                            @yield('content')
+                        </div>
                     </div>
                 </section>
             </div>
